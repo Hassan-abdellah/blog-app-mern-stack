@@ -1,0 +1,53 @@
+.user-image {
+  position: relative;
+}
+.avatar {
+  padding: 2px;
+}
+.avatar.active {
+  border: 1px solid #fff;
+}
+.user-menu {
+  list-style: none;
+  position: absolute;
+  background-color: rgba(102, 16, 83, 0.75);
+  top: 45px;
+  top: 50px;
+  left: 3px;
+  width: 150px;
+  z-index: 50;
+  border-radius: 5px;
+}
+.user-menu::before {
+  content: "";
+  position: absolute;
+  top:-10px;
+  left:10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(102, 16, 83, 0.75);
+}
+
+.user-menu .user-menu-item {
+  display: block;
+  width: 100%;
+  padding: 12px 10px;
+  font-weight: 100;
+  transition: all 0.5s ease-in-out;
+}
+.user-menu .user-menu-item:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.user-menu .user-menu-item:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.user-menu .user-menu-item:not(:last-child) {
+  border-bottom: 2px solid #fff;
+}
+.user-menu .user-menu-item:hover {
+  background-color: rgba(102, 16, 83, 0.9);
+}
