@@ -15,21 +15,21 @@
 .carret.active{
     transform: rotate(180deg);
 }
-
 .nav-submenu{
     list-style: none;
     position: absolute;
-    background-color: rgba(102,16,83,0.75);
+    background-color: var(--primary-color);
     top:38px;
     left:3px;
     width: 150px;
     z-index: 50;
     border-radius: 5px;
 }
+.nav-submenu.small{
+    border: 1px solid var(--secondary-color);
+}
 .nav-submenu .submenu-item{
-    /* display: block; */
     width: 100%;
-    padding:12px 10px;
     font-weight: 100;
     transition: all 0.5s ease-in-out;
 }
@@ -45,7 +45,8 @@
     border-bottom: 2px solid #fff;
 }
 .nav-submenu .submenu-item:hover{
-    background-color: rgba(102,16,83,0.9);
+    /* background-color: rgba(102,16,83,0.9); */
+    background-color:var(--secondary-color);
 }
 
 .nav-submenu .submenu-item a{
@@ -55,4 +56,5 @@
     display: block;
     height: 100%;
     width: 100%;
+    padding:12px 10px;
 }

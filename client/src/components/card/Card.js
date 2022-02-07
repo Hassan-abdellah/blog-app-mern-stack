@@ -17,7 +17,7 @@ const Card = ({post, animate}) => {
             <div className="card-img">
                 <img src={post.img} alt=""/>
             </div>
-            <h2 className="card-title">{post.title.length > 32 ? post.title.slice(0,32) : post.title}</h2> 
+            <h2 className="card-title">{post.title.length > 32 ? post.title.slice(0,30)+'...' : post.title}</h2> 
             <p className="card-desc">{post.desc.slice(0,50)}...</p>
             <div className="card-button">
                 <button className="btn">

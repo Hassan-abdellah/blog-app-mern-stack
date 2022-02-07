@@ -9,16 +9,19 @@ const CategoryPosts = () => {
   const category = location.pathname.split("/")[3];
 
   const catPosts = posts.filter((post) => post.cat === category);
-  
+
   useEffect(() => {
     document.title = `Blog APP | ${category.slice(0, 1).toUpperCase() + category.slice(1)}`;
-  },[category]);
-  
+  }, [category]);
+
   return (
     <div className="category">
-      {catPosts.map((post, index) => (
-        <Card key={post.id} post={post} animate={index > 2 ? true : false} />
-      ))}
+      <h1><span>{category.slice(0,1).toUpperCase() + category.slice(1)}</span> Posts</h1>
+      <div className="cards-container">
+        {catPosts.map((post, index) => (
+          <Card key={post.id} post={post} animate={true} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -3,11 +3,12 @@ import "./usermenu.css";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-const UserMenu = ({ user }) => {
+const UserMenu = ({ user, setActive, active }) => {
   const [isMenuActive, setIsMenuActive] = useState(false);
 
   const logoutUser = () => {
     window.open("http://localhost:5000/auth/logout", "_self");
+    setActive(false);
   };
 
   useEffect(() => {
@@ -23,30 +24,34 @@ const UserMenu = ({ user }) => {
   }, [isMenuActive]);
 
   return (
-      <li className="list-item user-image">
+    <li className="list-item user-image">
+      <div className="user-data" onClick={() => setIsMenuActive(!isMenuActive)}>
         <img
           src={user.photos[0].value}
           alt="user"
           className={isMenuActive ? "avatar active" : "avatar"}
-          onClick={() => setIsMenuActive(!isMenuActive)}
         />
-        <AnimatePresence>
-          {isMenuActive && (
-            <motion.ul
-              initial={{ x: "-50%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-50%", opacity: 0 }}
-              transition={{ ease: "easeInOut", duration: 0.75 }}
-              className="user-menu"
-            >
-              <li className="list-item user-menu-item">{user.displayName}</li>
-              <li className="list-item user-menu-item" onClick={logoutUser}>
-                Logout
-              </li>
-            </motion.ul>
-          )}
-        </AnimatePresence>
-      </li>
+        {active && (
+          <span className="user-name">{user.displayName}</span>
+        )}
+      </div>
+      <AnimatePresence>
+        {isMenuActive && (
+          <motion.ul
+            initial={{ y: "-50%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "-50%", opacity: 0 }}
+            transition={{ type: "spring", ease: "easeInOut", stiffness: "100", duration: 0.75 }}
+            className="user-menu"
+          >
+            <li className="list-item user-menu-item" onClick={() => setActive(false)}>{user.displayName}</li>
+            <li className="list-item user-menu-item" onClick={logoutUser}>
+              Logout
+            </li>
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </li>
   );
 };
 

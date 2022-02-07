@@ -1,10 +1,8 @@
 /* Card Styles Start */
 
 .card{
-    /* width: 30%; */
-    width: 300px;
+    /* width: 300px; */
     padding-bottom: 10px;
-    margin-bottom: 20px;
     overflow: hidden;
     border-radius: 20px;
     -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
@@ -44,6 +42,7 @@
   .card-button .btn{
     border: 0;
     background-color: rgba(53,16,102,0.678);
+    background-color: var(--primary-color);
     color:#fff;
     cursor: pointer;
     border-radius: 5px;
